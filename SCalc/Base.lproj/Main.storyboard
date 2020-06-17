@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SCalc" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ScreenShotSCalc" translatesAutoresizingMaskIntoConstraints="NO" id="WVS-pD-row">
+                                <rect key="frame" x="62" y="176" width="290" height="270"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="270" id="Tgt-Xu-Ql9"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available for the Apple Watch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbC-al-Uwp">
+                                <rect key="frame" x="95" y="515" width="224" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="tbC-al-Uwp" firstAttribute="centerX" secondItem="WVS-pD-row" secondAttribute="centerX" id="0de-Cd-Btf"/>
+                            <constraint firstItem="WVS-pD-row" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5Iy-Kf-xMM"/>
+                            <constraint firstItem="WVS-pD-row" firstAttribute="top" secondItem="Uee-0j-aNJ" secondAttribute="top" constant="132" id="FFd-3J-dUX"/>
+                            <constraint firstItem="WVS-pD-row" firstAttribute="leading" secondItem="Uee-0j-aNJ" secondAttribute="leading" constant="62" id="Wth-Sl-BGG"/>
+                            <constraint firstItem="tbC-al-Uwp" firstAttribute="top" secondItem="WVS-pD-row" secondAttribute="bottom" constant="69" id="dgp-qw-76u"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Uee-0j-aNJ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="47.826086956521742" y="20.758928571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ScreenShotSCalc" width="464" height="519"/>
+    </resources>
+</document>
