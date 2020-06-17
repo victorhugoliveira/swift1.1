@@ -1,0 +1,763 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		072542FF2296162400D040AD /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074624E82280AFFF00A80B16 /* Model.swift */; };
+		072543012296177C00D040AD /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074624E82280AFFF00A80B16 /* Model.swift */; };
+		0725430222961AD500D040AD /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0779306E227CD4EC0059173D /* InterfaceController.swift */; };
+		074624E72280AA7E00A80B16 /* SCalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07793055227CD4EB0059173D /* SCalcTests.swift */; };
+		07578BFB22AC27BA00B07112 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07578BFA22AC27BA00B07112 /* Default-568h@2x.png */; };
+		07793041227CD4EA0059173D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07793040227CD4EA0059173D /* AppDelegate.swift */; };
+		07793043227CD4EA0059173D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07793042227CD4EA0059173D /* ViewController.swift */; };
+		07793046227CD4EA0059173D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07793044227CD4EA0059173D /* Main.storyboard */; };
+		07793048227CD4EB0059173D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07793047227CD4EB0059173D /* Assets.xcassets */; };
+		0779304B227CD4EB0059173D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07793049227CD4EB0059173D /* LaunchScreen.storyboard */; };
+		0779305B227CD4EB0059173D /* SCalc WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0779305A227CD4EB0059173D /* SCalc WatchKit App.app */; };
+		07793061227CD4EB0059173D /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0779305F227CD4EB0059173D /* Interface.storyboard */; };
+		07793063227CD4EB0059173D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07793062227CD4EB0059173D /* Assets.xcassets */; };
+		0779306A227CD4EC0059173D /* SCalc WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 07793069227CD4EC0059173D /* SCalc WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0779306F227CD4EC0059173D /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0779306E227CD4EC0059173D /* InterfaceController.swift */; };
+		07793071227CD4EC0059173D /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07793070227CD4EC0059173D /* ExtensionDelegate.swift */; };
+		07793073227CD4EC0059173D /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07793072227CD4EC0059173D /* NotificationController.swift */; };
+		07793075227CD4EC0059173D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07793074227CD4EC0059173D /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		07793052227CD4EB0059173D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07793035227CD4EA0059173D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0779303C227CD4EA0059173D;
+			remoteInfo = SCalc;
+		};
+		0779305C227CD4EB0059173D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07793035227CD4EA0059173D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07793059227CD4EB0059173D;
+			remoteInfo = "SCalc WatchKit App";
+		};
+		0779306B227CD4EC0059173D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07793035227CD4EA0059173D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07793068227CD4EC0059173D;
+			remoteInfo = "SCalc WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0779307D227CD4EC0059173D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0779306A227CD4EC0059173D /* SCalc WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07793081227CD4EC0059173D /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				0779305B227CD4EB0059173D /* SCalc WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		074624E82280AFFF00A80B16 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Model.swift; path = SCalc/Model.swift; sourceTree = SOURCE_ROOT; };
+		07578BFA22AC27BA00B07112 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		0779303D227CD4EA0059173D /* SCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		07793040227CD4EA0059173D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		07793042227CD4EA0059173D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		07793045227CD4EA0059173D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		07793047227CD4EB0059173D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0779304A227CD4EB0059173D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0779304C227CD4EB0059173D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07793051227CD4EB0059173D /* SCalcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SCalcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		07793055227CD4EB0059173D /* SCalcTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCalcTests.swift; sourceTree = "<group>"; };
+		07793057227CD4EB0059173D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0779305A227CD4EB0059173D /* SCalc WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SCalc WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		07793060227CD4EB0059173D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		07793062227CD4EB0059173D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		07793064227CD4EB0059173D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07793069227CD4EC0059173D /* SCalc WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SCalc WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0779306E227CD4EC0059173D /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		07793070227CD4EC0059173D /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		07793072227CD4EC0059173D /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		07793074227CD4EC0059173D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		07793076227CD4EC0059173D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07793077227CD4EC0059173D /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0779303A227CD4EA0059173D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0779304E227CD4EB0059173D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07793066227CD4EC0059173D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07793034227CD4EA0059173D = {
+			isa = PBXGroup;
+			children = (
+				07578BFA22AC27BA00B07112 /* Default-568h@2x.png */,
+				0779303F227CD4EA0059173D /* SCalc */,
+				07793054227CD4EB0059173D /* SCalcTests */,
+				0779305E227CD4EB0059173D /* SCalc WatchKit App */,
+				0779306D227CD4EC0059173D /* SCalc WatchKit Extension */,
+				0779303E227CD4EA0059173D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0779303E227CD4EA0059173D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0779303D227CD4EA0059173D /* SCalc.app */,
+				07793051227CD4EB0059173D /* SCalcTests.xctest */,
+				0779305A227CD4EB0059173D /* SCalc WatchKit App.app */,
+				07793069227CD4EC0059173D /* SCalc WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0779303F227CD4EA0059173D /* SCalc */ = {
+			isa = PBXGroup;
+			children = (
+				074624E82280AFFF00A80B16 /* Model.swift */,
+				07793040227CD4EA0059173D /* AppDelegate.swift */,
+				07793042227CD4EA0059173D /* ViewController.swift */,
+				07793044227CD4EA0059173D /* Main.storyboard */,
+				07793047227CD4EB0059173D /* Assets.xcassets */,
+				07793049227CD4EB0059173D /* LaunchScreen.storyboard */,
+				0779304C227CD4EB0059173D /* Info.plist */,
+			);
+			path = SCalc;
+			sourceTree = "<group>";
+		};
+		07793054227CD4EB0059173D /* SCalcTests */ = {
+			isa = PBXGroup;
+			children = (
+				07793055227CD4EB0059173D /* SCalcTests.swift */,
+				07793057227CD4EB0059173D /* Info.plist */,
+			);
+			path = SCalcTests;
+			sourceTree = "<group>";
+		};
+		0779305E227CD4EB0059173D /* SCalc WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				0779305F227CD4EB0059173D /* Interface.storyboard */,
+				07793062227CD4EB0059173D /* Assets.xcassets */,
+				07793064227CD4EB0059173D /* Info.plist */,
+			);
+			path = "SCalc WatchKit App";
+			sourceTree = "<group>";
+		};
+		0779306D227CD4EC0059173D /* SCalc WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0779306E227CD4EC0059173D /* InterfaceController.swift */,
+				07793070227CD4EC0059173D /* ExtensionDelegate.swift */,
+				07793072227CD4EC0059173D /* NotificationController.swift */,
+				07793074227CD4EC0059173D /* Assets.xcassets */,
+				07793076227CD4EC0059173D /* Info.plist */,
+				07793077227CD4EC0059173D /* PushNotificationPayload.apns */,
+			);
+			path = "SCalc WatchKit Extension";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0779303C227CD4EA0059173D /* SCalc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07793082227CD4EC0059173D /* Build configuration list for PBXNativeTarget "SCalc" */;
+			buildPhases = (
+				07793039227CD4EA0059173D /* Sources */,
+				0779303A227CD4EA0059173D /* Frameworks */,
+				0779303B227CD4EA0059173D /* Resources */,
+				07793081227CD4EC0059173D /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0779305D227CD4EB0059173D /* PBXTargetDependency */,
+			);
+			name = SCalc;
+			productName = SCalc;
+			productReference = 0779303D227CD4EA0059173D /* SCalc.app */;
+			productType = "com.apple.product-type.application";
+		};
+		07793050227CD4EB0059173D /* SCalcTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07793085227CD4EC0059173D /* Build configuration list for PBXNativeTarget "SCalcTests" */;
+			buildPhases = (
+				0779304D227CD4EB0059173D /* Sources */,
+				0779304E227CD4EB0059173D /* Frameworks */,
+				0779304F227CD4EB0059173D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				07793053227CD4EB0059173D /* PBXTargetDependency */,
+			);
+			name = SCalcTests;
+			productName = SCalcTests;
+			productReference = 07793051227CD4EB0059173D /* SCalcTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		07793059227CD4EB0059173D /* SCalc WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0779307E227CD4EC0059173D /* Build configuration list for PBXNativeTarget "SCalc WatchKit App" */;
+			buildPhases = (
+				07793058227CD4EB0059173D /* Resources */,
+				0779307D227CD4EC0059173D /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0779306C227CD4EC0059173D /* PBXTargetDependency */,
+			);
+			name = "SCalc WatchKit App";
+			productName = "SCalc WatchKit App";
+			productReference = 0779305A227CD4EB0059173D /* SCalc WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		07793068227CD4EC0059173D /* SCalc WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0779307A227CD4EC0059173D /* Build configuration list for PBXNativeTarget "SCalc WatchKit Extension" */;
+			buildPhases = (
+				07793065227CD4EC0059173D /* Sources */,
+				07793066227CD4EC0059173D /* Frameworks */,
+				07793067227CD4EC0059173D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SCalc WatchKit Extension";
+			productName = "SCalc WatchKit Extension";
+			productReference = 07793069227CD4EC0059173D /* SCalc WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		07793035227CD4EA0059173D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Plinio Vilela";
+				TargetAttributes = {
+					0779303C227CD4EA0059173D = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					07793050227CD4EB0059173D = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 0779303C227CD4EA0059173D;
+					};
+					07793059227CD4EB0059173D = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					07793068227CD4EC0059173D = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 07793038227CD4EA0059173D /* Build configuration list for PBXProject "SCalc" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 07793034227CD4EA0059173D;
+			productRefGroup = 0779303E227CD4EA0059173D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0779303C227CD4EA0059173D /* SCalc */,
+				07793050227CD4EB0059173D /* SCalcTests */,
+				07793059227CD4EB0059173D /* SCalc WatchKit App */,
+				07793068227CD4EC0059173D /* SCalc WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0779303B227CD4EA0059173D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0779304B227CD4EB0059173D /* LaunchScreen.storyboard in Resources */,
+				07578BFB22AC27BA00B07112 /* Default-568h@2x.png in Resources */,
+				07793048227CD4EB0059173D /* Assets.xcassets in Resources */,
+				07793046227CD4EA0059173D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0779304F227CD4EB0059173D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07793058227CD4EB0059173D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07793063227CD4EB0059173D /* Assets.xcassets in Resources */,
+				07793061227CD4EB0059173D /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07793067227CD4EC0059173D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07793075227CD4EC0059173D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		07793039227CD4EA0059173D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				072542FF2296162400D040AD /* Model.swift in Sources */,
+				0725430222961AD500D040AD /* InterfaceController.swift in Sources */,
+				07793043227CD4EA0059173D /* ViewController.swift in Sources */,
+				07793041227CD4EA0059173D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0779304D227CD4EB0059173D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				074624E72280AA7E00A80B16 /* SCalcTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07793065227CD4EC0059173D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07793073227CD4EC0059173D /* NotificationController.swift in Sources */,
+				07793071227CD4EC0059173D /* ExtensionDelegate.swift in Sources */,
+				0779306F227CD4EC0059173D /* InterfaceController.swift in Sources */,
+				072543012296177C00D040AD /* Model.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		07793053227CD4EB0059173D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0779303C227CD4EA0059173D /* SCalc */;
+			targetProxy = 07793052227CD4EB0059173D /* PBXContainerItemProxy */;
+		};
+		0779305D227CD4EB0059173D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07793059227CD4EB0059173D /* SCalc WatchKit App */;
+			targetProxy = 0779305C227CD4EB0059173D /* PBXContainerItemProxy */;
+		};
+		0779306C227CD4EC0059173D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07793068227CD4EC0059173D /* SCalc WatchKit Extension */;
+			targetProxy = 0779306B227CD4EC0059173D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		07793044227CD4EA0059173D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07793045227CD4EA0059173D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		07793049227CD4EB0059173D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0779304A227CD4EB0059173D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0779305F227CD4EB0059173D /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07793060227CD4EB0059173D /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		07793078227CD4EC0059173D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		07793079227CD4EC0059173D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0779307B227CD4EC0059173D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F8948GMZA4;
+				INFOPLIST_FILE = "SCalc WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ydoo.SCalc.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.2;
+			};
+			name = Debug;
+		};
+		0779307C227CD4EC0059173D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F8948GMZA4;
+				INFOPLIST_FILE = "SCalc WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ydoo.SCalc.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.2;
+			};
+			name = Release;
+		};
+		0779307F227CD4EC0059173D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F8948GMZA4;
+				IBSC_MODULE = SCalc_WatchKit_Extension;
+				INFOPLIST_FILE = "SCalc WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = ydoo.SCalc.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.2;
+			};
+			name = Debug;
+		};
+		07793080227CD4EC0059173D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F8948GMZA4;
+				IBSC_MODULE = SCalc_WatchKit_Extension;
+				INFOPLIST_FILE = "SCalc WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = ydoo.SCalc.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.2;
+			};
+			name = Release;
+		};
+		07793083227CD4EC0059173D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F8948GMZA4;
+				INFOPLIST_FILE = SCalc/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ydoo.SCalc;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		07793084227CD4EC0059173D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F8948GMZA4;
+				INFOPLIST_FILE = SCalc/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ydoo.SCalc;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		07793086227CD4EC0059173D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F8948GMZA4;
+				INFOPLIST_FILE = SCalcTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ydoo.SCalcTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SCalc.app/SCalc";
+			};
+			name = Debug;
+		};
+		07793087227CD4EC0059173D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F8948GMZA4;
+				INFOPLIST_FILE = SCalcTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ydoo.SCalcTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SCalc.app/SCalc";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		07793038227CD4EA0059173D /* Build configuration list for PBXProject "SCalc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07793078227CD4EC0059173D /* Debug */,
+				07793079227CD4EC0059173D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0779307A227CD4EC0059173D /* Build configuration list for PBXNativeTarget "SCalc WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0779307B227CD4EC0059173D /* Debug */,
+				0779307C227CD4EC0059173D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0779307E227CD4EC0059173D /* Build configuration list for PBXNativeTarget "SCalc WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0779307F227CD4EC0059173D /* Debug */,
+				07793080227CD4EC0059173D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07793082227CD4EC0059173D /* Build configuration list for PBXNativeTarget "SCalc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07793083227CD4EC0059173D /* Debug */,
+				07793084227CD4EC0059173D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07793085227CD4EC0059173D /* Build configuration list for PBXNativeTarget "SCalcTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07793086227CD4EC0059173D /* Debug */,
+				07793087227CD4EC0059173D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 07793035227CD4EA0059173D /* Project object */;
+}
