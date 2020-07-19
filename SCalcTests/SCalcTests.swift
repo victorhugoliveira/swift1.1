@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import SCalc
+//@testable import SCalc
 
 class SCalcTests: XCTestCase {
     var model : Model!
@@ -23,186 +23,398 @@ class SCalcTests: XCTestCase {
 
     // 01
     func testPlusOperation_01() {
-        var str = ""
         // 1. given
-        str = model.treatEvent(event:"2")
-        str = model.treatEvent(event:"+")
-        str = model.treatEvent(event:"2")
+        var res = model.treatEvent(event:"2")
+        res = model.treatEvent(event:"+")
+        res = model.treatEvent(event:"2")
         // 2. when
-        str = model.treatEvent(event:"=")
+        res = model.treatEvent(event:"=")
         // 3. then
-        XCTAssertEqual(str, "4.0", "2+2=4")
+        XCTAssertEqual(res.getNumberToDisplay(), "4", "2+2=4")
     }
 
+    
     // 02
     func testPlusOperation_02() {
-        var str = ""
         // 1. given
-        str = model.treatEvent(event:"2")
-        str = model.treatEvent(event:"3")
-        str = model.treatEvent(event:"+")
-        str = model.treatEvent(event:"2")
+        var res = model.treatEvent(event:"2")
+        res = model.treatEvent(event:"3")
+        res = model.treatEvent(event:"+")
+        res = model.treatEvent(event:"2")
         // 2. when
-        str = model.treatEvent(event:"=")
+        res = model.treatEvent(event:"=")
         // 3. then
-        XCTAssertEqual(str, "25.0", "23+2=25")
+        XCTAssertEqual(res.getNumberToDisplay(), "25", "23+2=25")
     }
+    
     
     // 03
     func testRejectInitialZeros() {
-        var str = ""
         // 1. given
-        str = model.treatEvent(event:"0")
-        str = model.treatEvent(event:"0")
-        str = model.treatEvent(event:"0")
-        str = model.treatEvent(event:"0")
+        var res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
         // 2. when
-        str = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
         // 3. then
-        XCTAssertEqual(str, "0", "Initial zeros are ignored")
+        XCTAssertEqual(res.getNumberToDisplay(), "0", "Initial zeros are ignored")
     }
+    
     
     // 04
     func testRejectDoublePoints() {
-        var str = ""
         // 1. given
-        str = model.treatEvent(event:"0")
-        str = model.treatEvent(event:".")
-        str = model.treatEvent(event:"0")
-        str = model.treatEvent(event:".")
+        var res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:".")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:".")
         // 2. when
-        str = model.treatEvent(event:"1")
+        res = model.treatEvent(event:"1")
         // 3. then
-        XCTAssertEqual(str, "0.01", "Double points are ignored")
+        XCTAssertEqual(res.getNumberToDisplay(), "0.01", "Double points are ignored")
     }
+    
     
     // 05
     func testRejectDoublePointsSecondNumber() {
-        var str = ""
         // 1. given
-        str = model.treatEvent(event:"0")
-        str = model.treatEvent(event:".")
-        str = model.treatEvent(event:"0")
-        str = model.treatEvent(event:".")
-        str = model.treatEvent(event:"1")
-        str = model.treatEvent(event:"+")
-        str = model.treatEvent(event:".")
-        str = model.treatEvent(event:"0")
-        str = model.treatEvent(event:".")
-        str = model.treatEvent(event:"1")
+        var res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:".")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:".")
+        res = model.treatEvent(event:"1")
+        res = model.treatEvent(event:"+")
+        res = model.treatEvent(event:".")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:".")
+        res = model.treatEvent(event:"1")
         // 2. when
-        str = model.treatEvent(event:"=")
+        res = model.treatEvent(event:"=")
         // 3. then
-        XCTAssertEqual(str, "0.02", "Double points are ignored second number too")
+        XCTAssertEqual(res.getNumberToDisplay(), "0.02", "Double points are ignored second number too")
     }
+    
     
     // 06
     func testRejectDoubleEquals() {
-        var str = ""
         // 1. given
-        str = model.treatEvent(event:"0")
-        str = model.treatEvent(event:"1")
-        str = model.treatEvent(event:"2")
-        str = model.treatEvent(event:"+")
-        str = model.treatEvent(event:"2")
-        str = model.treatEvent(event:"+")
-        str = model.treatEvent(event:"-")
-        str = model.treatEvent(event:"3")
-        str = model.treatEvent(event:"=")
-        str = model.treatEvent(event:"=")
+        var res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"1")
+        res = model.treatEvent(event:"2")
+        res = model.treatEvent(event:"+")
+        res = model.treatEvent(event:"2")
+        res = model.treatEvent(event:"+")
+        res = model.treatEvent(event:"-")
+        res = model.treatEvent(event:"3")
+        res = model.treatEvent(event:"=")
+        res = model.treatEvent(event:"=")
         // 2. when
-        str = model.treatEvent(event:"=")
+        res = model.treatEvent(event:"=")
         // 3. then
-        XCTAssertEqual(str, "11", "Multiple operations, consider the last. Ignore multiple equals.")
+        XCTAssertEqual(res.getNumberToDisplay(), "11", "Multiple operations, consider the last. Ignore multiple equals.")
     }
+    
     
     // 07
     func testAppendAfterAnOperation() {
-        var str = ""
         // 1. given
-        str = model.treatEvent(event:"1")
-        str = model.treatEvent(event:"2")
-        str = model.treatEvent(event:"3")
-        str = model.treatEvent(event:"-")
-        str = model.treatEvent(event:"2")
-        str = model.treatEvent(event:"3")
-        str = model.treatEvent(event:"=")
-        str = model.treatEvent(event:"1")
-        str = model.treatEvent(event:"+")
-        str = model.treatEvent(event:"1")
-        str = model.treatEvent(event:"=")
+        var res = model.treatEvent(event:"1")
+        res = model.treatEvent(event:"2")
+        res = model.treatEvent(event:"3")
+        res = model.treatEvent(event:"-")
+        res = model.treatEvent(event:"2")
+        res = model.treatEvent(event:"3")
+        res = model.treatEvent(event:"=")
+        res = model.treatEvent(event:"1")
+        res = model.treatEvent(event:"+")
+        res = model.treatEvent(event:"1")
+        res = model.treatEvent(event:"=")
         // 2. when
-        str = model.treatEvent(event:"=")
+        res = model.treatEvent(event:"=")
         // 3. then
-        XCTAssertEqual(str, "1002", "Append to 100 -> 1001 + 1 = 1002.")
+        XCTAssertEqual(res.getNumberToDisplay(), "1002", "Append to 100 -> 1001 + 1 = 1002.")
     }
     
     // 08
     func testSecondNumberDecimal() {
-        var str = ""
         // 1. given
-        str = model.treatEvent(event:"1")
-        str = model.treatEvent(event:"2")
-        str = model.treatEvent(event:"3")
-        str = model.treatEvent(event:"-")
-        str = model.treatEvent(event:"2")
-        str = model.treatEvent(event:"3")
-        str = model.treatEvent(event:".")
-        str = model.treatEvent(event:"3")
-        str = model.treatEvent(event:"+")
-        str = model.treatEvent(event:"1")
-        //str = model.treatEvent(event:"=")
+        var res = model.treatEvent(event:"1")
+        res = model.treatEvent(event:"2")
+        res = model.treatEvent(event:"3")
+        res = model.treatEvent(event:"-")
+        res = model.treatEvent(event:"2")
+        res = model.treatEvent(event:"3")
+        res = model.treatEvent(event:".")
+        res = model.treatEvent(event:"3")
+        res = model.treatEvent(event:"+")
+        res = model.treatEvent(event:"1")
+        //res = model.treatEvent(event:"=")
         // 2. when
-        str = model.treatEvent(event:"=")
+        res = model.treatEvent(event:"=")
         // 3. then
-        XCTAssertEqual(str, "100.7", "Second number is a decimal")
+        XCTAssertEqual(res.getNumberToDisplay(), "100.7", "Second number is a decimal")
     }
  
     
     // 09
     func testNegativeNumbers() {
-        var str = ""
         // 1. given
-        str = model.treatEvent(event:"-")
-        str = model.treatEvent(event:"2")
-        str = model.treatEvent(event:"3")
-        str = model.treatEvent(event:"+")
-        str = model.treatEvent(event:"3")
-        str = model.treatEvent(event:"0")
-        str = model.treatEvent(event:"=")
-        str = model.treatEvent(event:"-")
-        str = model.treatEvent(event:"2")
-        str = model.treatEvent(event:"1")
-        str = model.treatEvent(event:"=")
+        var res = model.treatEvent(event:"-")
+        res = model.treatEvent(event:"2")
+        res = model.treatEvent(event:"3")
+        res = model.treatEvent(event:"+")
+        res = model.treatEvent(event:"3")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"=")
+        res = model.treatEvent(event:"-")
+        res = model.treatEvent(event:"2")
+        res = model.treatEvent(event:"1")
+        res = model.treatEvent(event:"=")
         // 2. when
-        str = model.treatEvent(event:"=")
+        res = model.treatEvent(event:"=")
         // 3. then
-        XCTAssertEqual(str, "-14", "Resultado negativo")
+        XCTAssertEqual(res.getNumberToDisplay(), "-14", "Resultado negativo")
     }
     
     // 10
     func testLimits() {
-        var str = ""
         // 1. given
-        str = model.treatEvent(event:"9")
-        str = model.treatEvent(event:"9")
-        str = model.treatEvent(event:"9")
-        str = model.treatEvent(event:"9")
-        str = model.treatEvent(event:"9")
-        str = model.treatEvent(event:"9")
-        str = model.treatEvent(event:"9")
-        str = model.treatEvent(event:"9")
-        str = model.treatEvent(event:"9")
-        str = model.treatEvent(event:"9")
-        str = model.treatEvent(event:"9")
-        str = model.treatEvent(event:"9")
-        str = model.treatEvent(event:"+")
-        str = model.treatEvent(event:"1")
-        str = model.treatEvent(event:"=")
+        var res = model.treatEvent(event:"9")
+        res = model.treatEvent(event:"9")
+        res = model.treatEvent(event:"9")
+        res = model.treatEvent(event:"9")
+        res = model.treatEvent(event:"9")
+        res = model.treatEvent(event:"9")
+        res = model.treatEvent(event:"9")
+        res = model.treatEvent(event:"9")
+        res = model.treatEvent(event:"9")
+        res = model.treatEvent(event:"9")
+        res = model.treatEvent(event:"+")
+        res = model.treatEvent(event:"1")
+        res = model.treatEvent(event:"=")
         // 2. when
-        str = model.treatEvent(event:"=")
+        res = model.treatEvent(event:"=")
         // 3. then
-        XCTAssertEqual(str, "1000000000000", "Treze digitos, nao aceita...")
+        XCTAssertEqual(res.getNumberToDisplay(), "10000000000", "Doze digitos, nao aceita...")
     }
     
+    // 11
+    func testLimitsScientificNotation() {
+        // 1. given
+        var res = model.treatEvent(event:"9")
+        res = model.treatEvent(event:"9")
+        res = model.treatEvent(event:"9")
+        res = model.treatEvent(event:"9")
+        res = model.treatEvent(event:"9")
+        res = model.treatEvent(event:"9")
+        res = model.treatEvent(event:"9")
+        res = model.treatEvent(event:"9")
+        res = model.treatEvent(event:"9")
+        res = model.treatEvent(event:"9")
+        res = model.treatEvent(event:"9")
+        res = model.treatEvent(event:"9")
+        res = model.treatEvent(event:"9")
+        res = model.treatEvent(event:"+")
+        res = model.treatEvent(event:"1")
+        // 2. when
+        res = model.treatEvent(event:"=")
+        // 3. then
+        XCTAssertEqual(res.getNumberToDisplay(), "1e+11", "Doze digitos, nao aceita...")
+    }
+        
+    // 12
+    func testLimitsDecimalPoits() {
+        // 1. given
+        var res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:".")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"3")
+        // 2. when
+        //res = model.treatEvent(event:"=")
+        // 3. then
+        XCTAssertEqual(res.getNumberToDisplay(), "0.0000003", "")
+    }
+    
+    // 13
+    func testLimitsScientificNotation_2() {
+        // 1. given
+        var res = model.treatEvent(event:"1")
+        res = model.treatEvent(event:"2")
+        res = model.treatEvent(event:"3")
+        res = model.treatEvent(event:"4")
+        res = model.treatEvent(event:"5")
+        res = model.treatEvent(event:"6")
+        res = model.treatEvent(event:"7")
+        res = model.treatEvent(event:"8")
+        res = model.treatEvent(event:"9")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"1")
+        // 2. when
+        res = model.treatEvent(event:"+")
+        // 3. then
+        XCTAssertEqual(res.getNumberToDisplay(), "12345678901", "Onze digitos, aceita...")
+    }
+    
+    // 14
+    func testLimitsDecimalPoits_2() {
+        // 1. given
+        var res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:".")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"3")
+        // 2. when
+        res = model.treatEvent(event:"+")
+        // 3. then
+        XCTAssertEqual(res.getNumberToDisplay(), "0.000000003", "")
+    }
+    
+    // 15
+    func testLimitsDecimalPoits_3() {
+        // 1. given
+        var res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:".")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"3")
+        res = model.treatEvent(event:"+")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:".")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"3")
+        // 2. when
+        res = model.treatEvent(event:"+")
+        // 3. then
+        XCTAssertEqual(res.getNumberToDisplay(), "0.000000006", "")
+    }
+    
+    // 16
+    func testLimitsDecimalPoits_4() {
+        // 1. given
+        var res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:".")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"3")
+        res = model.treatEvent(event:"+")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:".")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"3")
+        // 2. when
+        res = model.treatEvent(event:"=")
+        // 3. then
+        XCTAssertEqual(res.getNumberToDisplay(), "0.000000006", "")
+    }
+    
+    // 17
+    func testLimitsDecimalPoits_5() {
+        // 1. given
+        var res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:".")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"3")
+        res = model.treatEvent(event:"+")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:".")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"3")
+        res = model.treatEvent(event:"+")
+        res = model.treatEvent(event:"3")
+        // 2. when
+        res = model.treatEvent(event:"=")
+        // 3. then
+        XCTAssertEqual(res.getNumberToDisplay(), "3.000000006", "")
+    }
+    
+    
+    // 18
+    func testLimitsDecimalPoits_6() {
+        // 1. given
+        var res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:".")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"3")
+        res = model.treatEvent(event:"+")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:".")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"3")
+        res = model.treatEvent(event:"+")
+        res = model.treatEvent(event:"3")
+        res = model.treatEvent(event:"+")
+        res = model.treatEvent(event:"3")
+        res = model.treatEvent(event:"0")
+        res = model.treatEvent(event:"0")
+        // 2. when
+        res = model.treatEvent(event:"=")
+        // 3. then
+        XCTAssertEqual(res.getNumberToDisplay(), "3.03e+2", "")
+    }
 }
