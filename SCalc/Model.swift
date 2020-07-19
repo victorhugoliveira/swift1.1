@@ -8,6 +8,19 @@
 
 import Foundation
 
+extension Double {    
+    func toString(decimal: Int = 9) -> String {
+        let value = decimal < 0 ? 0 : decimal
+        var string = String(format: "%.\(value)f", self)
+        
+        while string.last == "0" || string.last == "." {
+            if string.last == "." { string = String(string.dropLast()); break}
+            string = String(string.dropLast())
+        }
+        return string
+    }
+}
+
 open class Model {
     var currentNumberStr = "0"
     var firstNumber = 0.0
@@ -61,7 +74,7 @@ open class Model {
     }
     
     
-    func treatEvent(event : String) -> (num: String, status: String) {
+    func treatEvent(event : String) -> Result {
         var statusStr = ""
         switch state{
         case "firstNumberState":
@@ -69,6 +82,7 @@ open class Model {
             case ".":
                 if (!currentNumberStr.contains(".")){
                     appendToNumberStr(numStr: event)
+                    statusStr = "temp"
                 }
             case "0","1","2","3","4","5","6","7","8","9":
                 var extra = ""
@@ -77,13 +91,19 @@ open class Model {
                     negation = false
                 }
                 appendToNumberStr(numStr: extra+event)
+                if (event=="0"){
+                    if(currentNumberStr.contains(".")){
+                        statusStr = "temp"
+                    }
+                }
             case "+","-","x","/":
                 if (currentNumberStr != "0"){
                     operation = event
                     firstNumber = Double(currentNumberStr)!
+                    let firstNumberStr = currentNumberStr
                     state = "secondNumberState"
                     currentNumberStr = "0"
-                    return (String(firstNumber),event)
+                    return Result(numberStr: firstNumberStr, statusStr: event)
                 }else{
                     if((event == "-")&&(firstNumber == 0.0)){
                         negation = true
@@ -97,7 +117,7 @@ open class Model {
             case "Clear":
                 clearLabel()
             default:
-                return (currentNumberStr,"")
+                return Result(numberStr: currentNumberStr, statusStr: "")
             }
         case "secondNumberState" :
             secondNumber = Double(currentNumberStr)!
@@ -105,9 +125,15 @@ open class Model {
             case ".":
                 if (!currentNumberStr.contains(".")){
                     appendToNumberStr(numStr: event)
+                    statusStr = "temp"
                 }
             case "0","1","2","3","4","5","6","7","8","9":
                 appendToNumberStr(numStr: event)
+                if (event=="0"){
+                    if(currentNumberStr.contains(".")){
+                        statusStr = "temp"
+                    }
+                }
             case "+","-","x","/":
                 if (secondNumber != 0.0) {
                     let result = executeOperation()
@@ -116,8 +142,9 @@ open class Model {
                     secondNumber = 0.0
                     currentNumberStr = "0"
                 }
+                let firstNumberStr = firstNumber.toString(decimal: 11)
                 operation = event
-                return (String(firstNumber),operation)
+                return Result(numberStr: firstNumberStr, statusStr: operation)
             case "Invert":
                 secondNumber = (-1) * secondNumber
                 currentNumberStr = "0"
@@ -127,25 +154,19 @@ open class Model {
                 firstNumber = result.num
                 statusStr = result.status
                 secondNumber = 0
-                
-                currentNumberStr = String(firstNumber)
-                if(floor(firstNumber)==firstNumber){
-                    let index = currentNumberStr.firstIndex(of: ".") ?? currentNumberStr.endIndex
-                    let beginning = currentNumberStr[..<index]
-                    currentNumberStr = String(beginning)                    
-                }
- 
+                currentNumberStr = firstNumber.toString(decimal: 11)
                 state = "firstNumberState"
-                return (String(firstNumber),statusStr)
+                return Result(numberStr: currentNumberStr, statusStr: statusStr)
             case "Clear":
                 state = "firstNumberState"
                 clearLabel()
             default:
-                return (currentNumberStr,statusStr)
-            }        default:
-                print("state: default")
+                return Result(numberStr: currentNumberStr, statusStr: statusStr)
+            }
+        default:
+            print("state: default")
         }
-        return (currentNumberStr,statusStr)
+        return Result(numberStr: currentNumberStr, statusStr: statusStr)
     }
     
     
