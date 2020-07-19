@@ -62,7 +62,7 @@ open class Model {
             result = firstNumber * secondNumber
         case "/":
             if(secondNumber==0.0){
-                statusStr = "err /0"
+                statusStr = "err* /0"
                 result = 0
             }else{
                 result = firstNumber / secondNumber
