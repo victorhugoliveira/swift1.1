@@ -17,8 +17,51 @@ open class Model {
     var negation = false
     
     
+    func clearLabel(){
+        // Basically resets everything
+        currentNumberStr = "0"
+        operation = ""
+        firstNumber = 0.0
+        secondNumber = 0.0
+    }
     
-    func treatEvent(event : String) -> Result {
+    func appendToNumberStr(numStr : String){
+        if(currentNumberStr.count<11){
+            if ((numStr != "0") || (currentNumberStr != "0")){
+                if((currentNumberStr == "0")&&(numStr != ".")){
+                    currentNumberStr = numStr
+                }else{
+                    currentNumberStr.append(numStr)
+                }
+            }
+        }
+    }    
+    
+    func executeOperation() -> (num: Double, status: String) {
+        var result = 0.0
+        var statusStr = "="
+        switch operation{
+        case "+":
+            result = firstNumber + secondNumber
+        case "-":
+            result = firstNumber - secondNumber
+        case "x":
+            result = firstNumber * secondNumber
+        case "/":
+            if(secondNumber==0.0){
+                statusStr = "err /0"
+                result = 0
+            }else{
+                result = firstNumber / secondNumber
+            }
+        default:
+            statusStr = "no op"
+        }
+        return (result,statusStr)
+    }
+    
+    
+    func treatEvent(event : String) -> (num: String, status: String) {
         var statusStr = ""
         switch state{
         case "firstNumberState":
@@ -26,7 +69,6 @@ open class Model {
             case ".":
                 if (!currentNumberStr.contains(".")){
                     appendToNumberStr(numStr: event)
-                    statusStr = "temp"
                 }
             case "0","1","2","3","4","5","6","7","8","9":
                 var extra = ""
@@ -35,19 +77,13 @@ open class Model {
                     negation = false
                 }
                 appendToNumberStr(numStr: extra+event)
-                if (event=="0"){
-                    if(currentNumberStr.contains(".")){
-                        statusStr = "temp"
-                    }
-                }
             case "+","-","x","/":
                 if (currentNumberStr != "0"){
                     operation = event
                     firstNumber = Double(currentNumberStr)!
-                    let firstNumberStr = currentNumberStr
                     state = "secondNumberState"
                     currentNumberStr = "0"
-                    return Result(numberStr: firstNumberStr, statusStr: event)
+                    return (String(firstNumber),event)
                 }else{
                     if((event == "-")&&(firstNumber == 0.0)){
                         negation = true
@@ -61,7 +97,7 @@ open class Model {
             case "Clear":
                 clearLabel()
             default:
-                return Result(numberStr: currentNumberStr, statusStr: "")
+                return (currentNumberStr,"")
             }
         case "secondNumberState" :
             secondNumber = Double(currentNumberStr)!
@@ -69,15 +105,9 @@ open class Model {
             case ".":
                 if (!currentNumberStr.contains(".")){
                     appendToNumberStr(numStr: event)
-                    statusStr = "temp"
                 }
             case "0","1","2","3","4","5","6","7","8","9":
                 appendToNumberStr(numStr: event)
-                if (event=="0"){
-                    if(currentNumberStr.contains(".")){
-                        statusStr = "temp"
-                    }
-                }
             case "+","-","x","/":
                 if (secondNumber != 0.0) {
                     let result = executeOperation()
@@ -86,9 +116,8 @@ open class Model {
                     secondNumber = 0.0
                     currentNumberStr = "0"
                 }
-                let firstNumberStr = firstNumber.toString(decimal: 11)
                 operation = event
-                return Result(numberStr: firstNumberStr, statusStr: operation)
+                return (String(firstNumber),operation)
             case "Invert":
                 secondNumber = (-1) * secondNumber
                 currentNumberStr = "0"
@@ -98,19 +127,25 @@ open class Model {
                 firstNumber = result.num
                 statusStr = result.status
                 secondNumber = 0
-                currentNumberStr = firstNumber.toString(decimal: 11)
+                
+                currentNumberStr = String(firstNumber)
+                if(floor(firstNumber)==firstNumber){
+                    let index = currentNumberStr.firstIndex(of: ".") ?? currentNumberStr.endIndex
+                    let beginning = currentNumberStr[..<index]
+                    currentNumberStr = String(beginning)                    
+                }
+ 
                 state = "firstNumberState"
-                return Result(numberStr: currentNumberStr, statusStr: statusStr)
+                return (String(firstNumber),statusStr)
             case "Clear":
                 state = "firstNumberState"
                 clearLabel()
             default:
-                return Result(numberStr: currentNumberStr, statusStr: statusStr)
-            }
-        default:
-            print("state: default")
+                return (currentNumberStr,statusStr)
+            }        default:
+                print("state: default")
         }
-        return Result(numberStr: currentNumberStr, statusStr: statusStr)
+        return (currentNumberStr,statusStr)
     }
     
     
