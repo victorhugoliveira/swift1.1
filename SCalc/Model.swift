@@ -8,35 +8,22 @@
 
 import Foundation
 
-open class Model {
-    var currentNumberStr = "0"
-    var firstNumber = 0.0
-    var secondNumber = 0.0
-    var operation = ""
-    var state = "firstNumberState"
-    var negation = false
-    
-    func executeOperation() -> (num: Double, status: String) {
-        var result = 0.0
-        var statusStr = "="
-        switch operation{
-        case "+":
-            result = firstNumber + secondNumber
-        case "-":
-            result = firstNumber - secondNumber
-        case "x":
-            result = firstNumber * secondNumber
-        case "/":
-            if(secondNumber==0.0){
-                statusStr = "err* /0"
-                result = 0
-            }else{
-                result = firstNumber / secondNumber
-            }
-        default:
-            statusStr = "no op"
+extension Double {    
+    func toString(decimal: Int = 9) -> String {
+        let value = decimal < 0 ? 0 : decimal
+        var string = String(format: "%.\(value)f", self)
+        
+        while string.last == "0" || string.last == "." {
+            if string.last == "." { string = String(string.dropLast()); break}
+            string = String(string.dropLast())
         }
-        return (result,statusStr)
+        return string
     }
+}
+
+
+
+open class Model {
+
     
 }
