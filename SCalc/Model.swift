@@ -16,27 +16,6 @@ open class Model {
     var state = "firstNumberState"
     var negation = false
     
-    
-    func clearLabel(){
-        // Basically resets everything
-        currentNumberStr = "0"
-        operation = ""
-        firstNumber = 0.0
-        secondNumber = 0.0
-    }
-    
-    func appendToNumberStr(numStr : String){
-        if(currentNumberStr.count<11){
-            if ((numStr != "0") || (currentNumberStr != "0")){
-                if((currentNumberStr == "0")&&(numStr != ".")){
-                    currentNumberStr = numStr
-                }else{
-                    currentNumberStr.append(numStr)
-                }
-            }
-        }
-    }    
-    
     func executeOperation() -> (num: Double, status: String) {
         var result = 0.0
         var statusStr = "="
