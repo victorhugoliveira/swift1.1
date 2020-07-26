@@ -160,5 +160,4 @@ open class Model {
         return (currentNumberStr,statusStr)
     }
     
-    
 }
