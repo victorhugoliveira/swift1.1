@@ -9,7 +9,7 @@
 import Foundation
 
 open class Model {
-    func treatEvent(event : String) -> (num: String, status: String) {
+       func treatEvent(event : String) -> (num: String, status: String) {
         var statusStr = ""
         switch state{
         case "firstNumberState":
@@ -17,6 +17,7 @@ open class Model {
             case ".":
                 if (!currentNumberStr.contains(".")){
                     appendToNumberStr(numStr: event)
+                    statusStr = "temp"
                 }
             case "0","1","2","3","4","5","6","7","8","9":
                 var extra = ""
@@ -25,6 +26,11 @@ open class Model {
                     negation = false
                 }
                 appendToNumberStr(numStr: extra+event)
+                if (event=="0"){
+                    if(currentNumberStr.contains(".")){
+                        statusStr = "temp"
+                    }
+                }
             case "+","-","x","/":
                 if (currentNumberStr != "0"){
                     operation = event
@@ -53,9 +59,15 @@ open class Model {
             case ".":
                 if (!currentNumberStr.contains(".")){
                     appendToNumberStr(numStr: event)
+                    statusStr = "temp"
                 }
             case "0","1","2","3","4","5","6","7","8","9":
                 appendToNumberStr(numStr: event)
+                if (event=="0"){
+                    if(currentNumberStr.contains(".")){
+                        statusStr = "temp"
+                    }
+                }
             case "+","-","x","/":
                 if (secondNumber != 0.0) {
                     let result = executeOperation()
@@ -82,7 +94,6 @@ open class Model {
                     let beginning = currentNumberStr[..<index]
                     currentNumberStr = String(beginning)                    
                 }
- 
                 state = "firstNumberState"
                 return (String(firstNumber),statusStr)
             case "Clear":
